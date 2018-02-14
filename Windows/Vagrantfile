@@ -1,0 +1,19 @@
+Vagrant.configure("2") do |config|
+  config.vm.define "winbase"
+  
+  config.vm.provider :virtualbox do |vb|
+   vb.customize ["modifyvm", :id, "--memory", "2048", "--cpus", "2"]
+  end
+
+  config.vm.define "winbase" do |winbase|
+  winbase.vm.box = "win10"
+  winbase.vm.communicator = "winrm"
+  winbase.vm.boot_timeout = 600
+  winbase.vm.graceful_halt_timeout = 600
+	winbase.vm.base_mac = "aabbcc112211"
+
+  winbase.vm.network :forwarded_port, guest: 3389, host: 777
+  winbase.vm.network :forwarded_port, guest: 5985, host: 778, id: "winrm", auto_correct: true
+  end
+
+end

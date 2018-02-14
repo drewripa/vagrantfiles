@@ -1,0 +1,56 @@
+Vagrant.configure("2") do |config|
+  config.vm.define "apache"
+  config.vm.define "jenkins"
+  config.vm.define "client2"
+  config.vm.define "drewvm"
+
+  config.vm.provider :virtualbox do |vb|
+ #   # Don't boot with headless mode
+ #   vb.gui = true
+ #
+ #   # Use VBoxManage to customize the VM. For example to change memory:
+   vb.customize ["modifyvm", :id, "--memory", "2048", "--cpus", "2"]
+ end
+
+  config.vm.define "apache" do |apache|
+    apache.vm.box = "centos/7"
+	apache.vm.base_mac = "aabbcc112200"
+	apache.vm.network "private_network", ip: "192.168.1.99"
+	apache.vm.network "forwarded_port", guest: 80, host: 80,
+        auto_correct: true
+
+	apache.vm.provision "shell", path: "configs/provision_apache.sh"
+  end
+
+  config.vm.define "jenkins" do |jenkins|
+  jenkins.vm.box = "centos/7"
+	jenkins.vm.base_mac = "aabbcc112211"
+
+	jenkins.vm.network "private_network", ip: "192.168.9.99"
+  jenkins.vm.network "forwarded_port", guest: 8080, host: 8080
+  jenkins.vm.network "forwarded_port", guest: 4546, host: 4546
+	jenkins.vm.provision "shell", path: "configs/provision_jenkins.sh"
+  end
+
+  config.vm.define "client2" do |client2|
+    client2.vm.box = "centos/7"
+	client2.vm.base_mac = "aabbcc112222"
+
+	client2.vm.network "private_network", ip: "192.168.1.6"
+	client2.vm.provision "shell",
+		run: "always",
+		inline: "route add default gw 10.0.99.1"
+  end
+
+  config.vm.define "drewvm" do |drewvm|
+    drewvm.vm.box = "centos/7"
+	drewvm.vm.base_mac = "aabbcc080991"
+
+	drewvm.vm.network "private_network", ip: "19.91.8.9"
+	drewvm.vm.network "forwarded_port", guest: 80, host: 80,
+        auto_correct: true
+
+	drewvm.vm.provision "shell", path: "configs/provision_drew_vm.sh"
+  end
+
+end
