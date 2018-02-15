@@ -21,7 +21,7 @@ Get-Service -DisplayName "U-Prox IP Hardware Service" | Start-Service
 $Stream = [System.IO.StreamWriter] "c:\Users\vagrant\Desktop\Backup.ps1"
 $Stream.Write(
   "`$Date = Date -Format `"dd-MM-yyyy`"
-   mkdir -Force `"$BKPDESTINATION`$Date`"
+   mkdir -Force `"$BKPDESTINATION\`$Date`"
 
    Get-Service -DisplayName `"U-Prox IP Hardware Service`" | Stop-Service -Force
    Get-Service -DisplayName `"SQL Server (SQLEXPRESS)`" | Stop-Service -Force
