@@ -23,7 +23,7 @@ $Stream.Write(
    mkdir $BKPDESTINATION`$Date
 
    Get-Service -DisplayName `"SQL Server (SQLEXPRESS)`" | Stop-Service -Force
-   Copy-Item -Path $BKPSOURCE -Destination $BKPDESTINATION`w$Date
+   Copy-Item -Path $BKPSOURCE -Destination $BKPDESTINATION`$Date
    Get-Service -DisplayName `"SQL Server (SQLEXPRESS)`" | Start-Service
   ")
 $Stream.close()
