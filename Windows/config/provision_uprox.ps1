@@ -25,7 +25,7 @@ $Stream.Write(
 
    Get-Service -DisplayName `"U-Prox IP Hardware Service`" | Stop-Service -Force
    Get-Service -DisplayName `"SQL Server (SQLEXPRESS)`" | Stop-Service -Force
-   Copy-Item -Path `"$BKPSOURCE`" -Destination `"$BKPDESTINATION`$Date`"
+   Copy-Item -Path `"$BKPSOURCE`" -Destination `"$BKPDESTINATION\`$Date`"
    Copy-Item -Path `"$BKPSOURCE`" -Destination `"$BKPLATEST`"
    Get-Service -DisplayName `"SQL Server (SQLEXPRESS)`" | Start-Service
    Get-Service -DisplayName `"U-Prox IP Hardware Service`" | Start-Service
