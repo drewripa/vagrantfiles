@@ -13,7 +13,6 @@ Vagrant.configure("2") do |config|
   winbase.vm.box = "win10"
   winbase.vm.communicator = "winrm"
   winbase.winrm.username = "vagrant"
-  winbase.winrm.password = "vagrant"
   winbase.vm.boot_timeout = 600
   winbase.vm.graceful_halt_timeout = 600
 	winbase.vm.base_mac = "aabbcc112211"
