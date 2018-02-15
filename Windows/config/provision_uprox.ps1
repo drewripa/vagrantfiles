@@ -5,7 +5,8 @@ $BKPSOURCE = "C:\Program Files (x86)\A2SoftIn\UProxIP\UProxIP*.*df"
 $BKPDESTINATION = "\\tsclient\C\Users\Drew\Documents\MEGA\DB\uprox\bkp\"
 
 
-#Stop SQL Service first
+#Stop Service first
+Get-Service -DisplayName "U-Prox IP Hardware Service" | Stop-Service -Force
 Get-Service -DisplayName "SQL Server (SQLEXPRESS)" | Stop-Service -Force
 
 #Copy DB files from Vagrant host Location
@@ -13,6 +14,7 @@ Copy-Item -Path $SOURCE -Destination $DESTINATION
 
 #Start SQL Service finally
 Get-Service -DisplayName "SQL Server (SQLEXPRESS)" | Start-Service
+Get-Service -DisplayName "U-Prox IP Hardware Service" | Start-Service
 
 #Backup script for 'Desktop' folder
 $Stream = [System.IO.StreamWriter] "c:\Users\vagrant\Desktop\Backup.ps1"
