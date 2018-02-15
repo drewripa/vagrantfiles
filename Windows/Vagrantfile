@@ -33,8 +33,8 @@ Vagrant.configure("2") do |config|
   config.vm.define "uprox" do |uprox|
   uprox.vm.box = "win10uprox"
 
-  uprox.vm.provision "shell", 
-                      path: "config/provision_winbase.ps1",
+  uprox.vm.provision "shell",
+                      path: "config/provision_uprox_always.ps1",
                       privileged: true,
                       run: "always"
   uprox.vm.provision "shell",
