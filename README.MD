@@ -16,4 +16,4 @@ For my local network adapter (Ethernet) configuration looks like this:
 * IP: 192.168.0.1
 * Mask: 255.255.255.0
 * GW: 192.168.0.1
-Be sure to connect Ethernet cable before doing 'vagrant up uprox'
+<p>Be sure to connect Ethernet cable before doing 'vagrant up uprox'
