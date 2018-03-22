@@ -17,3 +17,6 @@ cd Python-3.6.4
 ./configure
 make
 make install
+cd ..
+rm -rf Python-3.6.4
+rm -rf py3.tgz
