@@ -3,6 +3,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "jenkins"
   config.vm.define "client2"
   config.vm.define "drewvm"
+  config.vm.define "python3"
 
   config.vm.provider :virtualbox do |vb|
  #   # Don't boot with headless mode
@@ -43,7 +44,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "drewvm" do |drewvm|
-    drewvm.vm.box = "centos/7"
+  drewvm.vm.box = "centos/7"
 	drewvm.vm.base_mac = "aabbcc080991"
 
 	drewvm.vm.network "private_network", ip: "19.91.8.9"
@@ -51,6 +52,12 @@ Vagrant.configure("2") do |config|
         auto_correct: true
 
 	drewvm.vm.provision "shell", path: "configs/provision_drew_vm.sh"
+  end
+
+  config.vm.define "python3" do |py3|
+  py3.vm.box = "centos/7"
+
+  py3.vm.provision "shell", path: "configs/provision_python3_tgbot.sh"
   end
 
 end
