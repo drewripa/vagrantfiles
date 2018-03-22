@@ -1,16 +1,21 @@
-# Vagrant files for some Windows and Linux related tasks
+Vagrant files for some Windows and Linux related tasks
+=
 
-## Linux section
+Linux section
+-
 
 Few general VMs
+*
 
-## Windows section
+Windows section
+-
 
 VMs:
 * winbase: created from w10pro installation iso with Creator updated (Fall 2017)
 * uprox: created from winbase with U-Prox installed on it
 
-### uprox VM additional setup
+uprox VM additional setup
+-
 
 For my local network adapter (Ethernet) configuration looks like this:
 * IP: 192.168.0.1
