@@ -21,4 +21,4 @@ echo "========================================================================="
 echo "========================== Clone Repo ==================================="
 echo "========================================================================="
 cd /var/www/html
-git clone https://github.com/drewripa/cvwebpage.git
+git clone https://github.com/drewripa/cvwebpage.git .
