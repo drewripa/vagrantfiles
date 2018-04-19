@@ -41,4 +41,9 @@ else
     echo "sudo_user      = root" >> /etc/ansible/ansible.cfg
     mv /etc/ansible/hosts /etc/ansible/hosts.origin
     touch /etc/ansible/hosts
+
+    echo "========================================================================="
+    echo "  Don't forget to create user 'ansible'"
+    echo "  and add it into sudoers manually by visudo"
+    echo "========================================================================="
 fi
