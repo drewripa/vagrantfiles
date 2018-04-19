@@ -37,8 +37,8 @@ else
     echo "========================================================================="
     echo "========================== Setup Defaults ==============================="
     echo "========================================================================="
-    echo "inventory      = /etc/ansible/hosts" > /etc/ansible/ansible.cfg
-    echo "sudo_user      = root" > /etc/ansible/ansible.cfg
+    echo "inventory      = /etc/ansible/hosts" >> /etc/ansible/ansible.cfg
+    echo "sudo_user      = root" >> /etc/ansible/ansible.cfg
     mv /etc/ansible/hosts /etc/ansible/hosts.origin
     touch /etc/ansible/hosts
 fi
