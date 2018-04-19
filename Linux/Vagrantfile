@@ -4,6 +4,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "client2"
   config.vm.define "drewvm"
   config.vm.define "python3"
+  config.vm.define "ansible"
 
   config.vm.provider :virtualbox do |vb|
  #   # Don't boot with headless mode
@@ -66,8 +67,12 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "python3" do |py3|
   py3.vm.box = "centos/7"
-
   py3.vm.provision "shell", path: "configs/provision_python3_tgbot.sh"
+  end
+
+  config.vm.define "ansible" do |ansible|
+  ansible.vm.box = "centos/7"
+  ansiblevm.provision "shell", path: "configs/provision_ansible.sh"
   end
 
 end
