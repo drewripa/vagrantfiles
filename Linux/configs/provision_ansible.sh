@@ -5,6 +5,7 @@ echo "========================== Updates ======================================"
 echo "========================================================================="
 yum -y update
 yum -y install rpm-build make asciidoc git python-setuptools python2-devel
+pip install Jinja2
 
 echo "========================================================================="
 echo "========================== Cloning Ansible Repo ========================="
