@@ -43,7 +43,8 @@ else
     touch /etc/ansible/hosts
 
     echo "========================================================================="
-    echo "  Don't forget to create user 'ansible'"
-    echo "  and add it into sudoers manually by visudo"
+    echo -e "\n\n\tDon't forget to create user 'ansible'\n\tand add it into sudoers manually by visudo\n\n"
+    echo -e "\tDon't forget to execute 'su ansible -' and 'ssh-keygen' for nopassword"
+    echo -e "\tDon't forget to execute 'ssh-copy-id ansible@yourhost\n\n'"
     echo "========================================================================="
 fi
