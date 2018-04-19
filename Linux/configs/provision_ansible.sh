@@ -4,14 +4,19 @@ echo "========================================================================="
 echo "========================== Updates ======================================"
 echo "========================================================================="
 yum -y update
-yum -y install rpm-build make asciidoc git python-setuptools python2-devel
+yum -y install  rpm-build make asciidoc git \
+                python-setuptools python2-devel python-docutils \
+                PyYAML python-jinja2 python-paramiko python-six \
+                python2-cryptography sshpass
+
+
 
 echo "========================================================================="
 echo "========================== Installing pip ==============================="
 echo "========================================================================="
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python get-pip.py
-pip install Jinja2
+
 
 echo "========================================================================="
 echo "========================== Cloning Ansible Repo ========================="
