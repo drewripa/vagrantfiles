@@ -10,7 +10,7 @@ yum -y install  rpm-build make asciidoc git \
                 python2-cryptography sshpass
 
 
-if which ansible; then
+if which ansible > /dev/null; then
     echo "========================================================================="
     echo "========================== Ansible installed on the system =============="
     echo "========================================================================="
