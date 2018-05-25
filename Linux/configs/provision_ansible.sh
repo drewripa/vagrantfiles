@@ -18,7 +18,7 @@ else
     echo "========================================================================="
     echo "========================== Installing pip ==============================="
     echo "========================================================================="
-    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py -k
     python get-pip.py
 
 
