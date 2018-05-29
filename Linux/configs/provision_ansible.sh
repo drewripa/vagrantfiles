@@ -58,9 +58,7 @@ else
     touch /etc/ansible/hosts
 
     echo "========================================================================="
-    echo -e "\n\n\tDon't forget to create user 'ansible'\n\tand add it into sudoers manually by visudo\n\n"
-    echo -e "\tDon't forget to execute 'su ansible -' and 'ssh-keygen' for nopassword"
-    echo -e "\tDon't forget to execute 'ssh-copy-id ansible@yourhost\n\n"
+    echo -e "\n\tDon't forget to execute 'ssh-copy-id ansible@yourhost\n\n"
     echo "========================================================================="
     adduser ansible -G wheel
     su ansible -
