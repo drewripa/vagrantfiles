@@ -46,7 +46,7 @@ else
     echo "========================================================================="
     echo "========================== Setup Defaults ==============================="
     echo "========================================================================="
-    if [! -d "$ANSIBLECFGDIR"]; then
+    if [ ! -d "$ANSIBLECFGDIR" ]; then
         mkdir $ANSIBLECFGDIR
     fi
     echo "inventory      = /etc/ansible/hosts" >> /etc/ansible/ansible.cfg
