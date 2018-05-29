@@ -1,5 +1,6 @@
 #!/bin/sh
 ANSIBLECFGDIR="/etc/ansible"
+ANSIBLERSAKEYDIR="/home/ansible/.ssh"
 
 echo "========================================================================="
 echo "========================== Updates ======================================"
@@ -49,6 +50,7 @@ else
     if [ ! -d "$ANSIBLECFGDIR" ]; then
         mkdir $ANSIBLECFGDIR
     fi
+    echo "[defaults]" >> /etc/ansible/ansible.cfg
     echo "inventory      = /etc/ansible/hosts" >> /etc/ansible/ansible.cfg
     echo "sudo_user      = root" >> /etc/ansible/ansible.cfg
     # commented due to absense hosts file in new release of self-builded ansible
@@ -62,5 +64,8 @@ else
     echo "========================================================================="
     adduser ansible -G wheel
     su ansible -
+    if [ ! -d "$ANSIBLERSAKEYDIR" ]; then
+        mkdir $ANSIBLERSAKEYDIR
+    fi
     ssh-keygen -b 2048 -t rsa -f /home/ansible/.ssh/id_rsa -q -N ""
 fi
