@@ -39,7 +39,7 @@ else
     echo "PATH=\$PATH:\$HOME/.local/bin:\$HOME/bin:\$HOME/ansible/bin:\$HOME/ansible/test/runner" >> /home/vagrant/.bashrc
     echo "PYTHONPATH=\$HOME/ansible/lib:" >> /home/vagrant/.bashrc
     echo "MANPATH=\$HOME/ansible/docs/man:" >> /home/vagrant/.bashrc
-    echo -e "export PATH\nexport PYTHONPATH\nexportMANPATH"
+    echo -e "export PATH\nexport PYTHONPATH\nexport MANPATH" >> /home/vagrant/.bashrc
     # make rpm
     # rpm -Uvh ./rpm-build/ansible-*.noarch.rpm
 
