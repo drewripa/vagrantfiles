@@ -60,4 +60,7 @@ else
     echo -e "\tDon't forget to execute 'su ansible -' and 'ssh-keygen' for nopassword"
     echo -e "\tDon't forget to execute 'ssh-copy-id ansible@yourhost\n\n"
     echo "========================================================================="
+    adduser ansible -G wheel
+    su ansible -
+    ssh-keygen -b 2048 -t rsa -f /home/ansible/.ssh/id_rsa -q -N ""
 fi
